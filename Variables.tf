@@ -18,7 +18,6 @@ variable "instanceNodeType" {
 
 //teremos que passar via secret
 variable "arnNumber" {
-  default = "090111931170"
 }
 
 variable "policyAccessCluster" {
@@ -50,5 +49,15 @@ variable "topicVideoStatusName" {
 variable "queueVideoStatusName" {
   default = "video-status-subscriber-queue.fifo"
 
+}
+
+variable "framesVideoS3Name" {
+  default = "frames-video-bucket"
+  
+}
+
+variable "originalVideoS3Name" {
+  default = "original-video-bucket"
+  
 }
 
