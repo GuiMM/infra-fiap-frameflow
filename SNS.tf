@@ -47,6 +47,7 @@ module "sns_topic_video_load" {
 
 module "sns_topic_video_status" {
   source  = "terraform-aws-modules/sns/aws"
+  depends_on = [ aws_sqs_queue.video_status_queue_alter_status, aws_sqs_queue.video_status_queue_notification ]
 
   name  = var.topicVideoStatusName
 
@@ -77,10 +78,15 @@ module "sns_topic_video_status" {
   }
 
   subscriptions = {
-    sqs = {
+    sqsAlterStatus = {
       protocol = "sqs"
-      endpoint = "arn:aws:sqs:${var.region}:${var.arnNumber}:${var.queueVideoStatusName}"
+      endpoint = "arn:aws:sqs:${var.region}:${var.arnNumber}:${var.queueVideoStatusNameNotification}"
     }
+     sqsNotificationStatus = {
+      protocol = "sqs"
+      endpoint = "arn:aws:sqs:${var.region}:${var.arnNumber}:${var.queueVideoStatusNameAlterStatus}"
+    }
+    
   }
 
   tags = {

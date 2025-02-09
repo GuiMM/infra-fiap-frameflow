@@ -46,8 +46,13 @@ variable "topicVideoStatusName" {
 
 }
 
-variable "queueVideoStatusName" {
-  default = "video-status-subscriber-queue.fifo"
+variable "queueVideoStatusNameAlterStatus" {
+  default = "video-status-subscriber-alter-status-queue.fifo"
+
+}
+
+variable "queueVideoStatusNameNotification" {
+  default = "video-status-subscriber-notification-queue.fifo"
 
 }
 
