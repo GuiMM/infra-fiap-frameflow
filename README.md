@@ -75,3 +75,7 @@ A solução será baseada em uma arquitetura escalável e distribuída, garantin
 
 ### 📩 Notificação de Status
 1. Notificação de status de erro/sucesso da requisição por e-mail.
+
+PS: Antes de executar o terraform deste projeto seguir os seguintes passos:
+1. Passo 1 - Criar Bucket S3 frameflow-backend-tf na AWS para guardar os arquivos .tf
+ - aws s3api create-bucket --bucket frameflow-backend-tf --region us-east-1
